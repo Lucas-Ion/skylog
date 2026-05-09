@@ -1,7 +1,5 @@
 # SkyLog
 
-Written By: Lucas Ion
-
 ## What I'm building
 
 SkyLog is a backend service for tracking flights and computing analytics over them. By the end it should be a real running system: an API, a worker that ingests live flight data from OpenSky Network, a Postgres database, Redis caching, structured logs, Prometheus metrics, and a deployment that survives me closing my desktop.
