@@ -16,7 +16,7 @@ The reason I picked aviation is that the data is genuinely diverse and available
 - The Pragmatic Programmer (Hunt, Thomas) for engineering mindset
 - Architecture Patterns with Python (Percival, Gregory) for the structural patterns I'll apply directly to SkyLog
 
-## The shape of the 8 weeks
+## The shape of the project
 
 The system grows in capability roughly like this:
 
@@ -52,7 +52,7 @@ Then a focus on the database itself. EXPLAIN ANALYZE on every important query. C
 
 Reading: Architecture Patterns chapters 8-9, DDIA chapter 11 (first half), DDIA chapter 3 (full), DDIA chapter 7.
 
-### Phase 4, weeks 7-8: Deployment and Pythonic refactor
+### Phase 4: Deployment and Pythonic refactor
 
 Multi-stage Dockerfile, docker-compose for local dev, GitHub Actions running lint, typecheck, tests, build, and image push. Deployed to a real URL on Hetzner or Fly.io. HTTPS, env-based config, secrets handled properly.
 
