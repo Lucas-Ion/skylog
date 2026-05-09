@@ -1,4 +1,4 @@
-# SkyLog- Initial Capstone Project Plan
+# SkyLog
 
 Written By: Lucas Ion
 
