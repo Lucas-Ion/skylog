@@ -4,9 +4,9 @@ Written By: Lucas Ion
 
 ## What I'm building
 
-SkyLog is a backend service for tracking flights and computing analytics over them. By the end of week 8 it should be a real running system: an API, a worker that ingests live flight data from OpenSky Network, a Postgres database, Redis caching, structured logs, Prometheus metrics, and a deployment that survives me closing my desktop.
+SkyLog is a backend service for tracking flights and computing analytics over them. By the end it should be a real running system: an API, a worker that ingests live flight data from OpenSky Network, a Postgres database, Redis caching, structured logs, Prometheus metrics, and a deployment that survives me closing my desktop.
 
-The reason I picked aviation is that the data is genuinely diverse and available. Flights have schedules, real positions, delays, routes, aircraft, airports, weather. That richness forces real database design and real system thinking instead of letting me get away with a glorified TODO list. It also has free public data sources (OpenSky, OurAirports CSV, Aviation Weather Center), so I'm never blocked on data.
+The reason I picked aviation is that the data is genuinely diverse and available. Flights have schedules, real positions, delays, routes, aircraft, airports, weather. It also has free public data sources (OpenSky, OurAirports CSV, Aviation Weather Center), so I'm never blocked on data.
 
 ## Books I'm working from
 
@@ -36,8 +36,6 @@ A FastAPI service over a Postgres database, exposing CRUD for airports, aircraft
 
 Reading: Pragmatic Programmer chapters 1-2, Clean Code chapters 2-4, Architecture Patterns chapters 1-2.
 
-What I want from review #1: feedback on whether my repository abstraction is over-engineered, walk-through of how you'd structure a service method differently, whether my test database approach is sane.
-
 ### Phase 2: Async, external data, caching
 
 A background async task pulls live aircraft positions from OpenSky every 60 seconds. Positions are persisted into a time-series-friendly schema. Reads are cached in Redis with a deliberate invalidation strategy that I write down before implementing. Structured logs with trace IDs. Prometheus metrics on request latency, ingestion success/failure, and cache hit ratio.
@@ -56,11 +54,9 @@ Reading: Architecture Patterns chapters 8-9, DDIA chapter 11 (first half), DDIA 
 
 Multi-stage Dockerfile, docker-compose for local dev, GitHub Actions running lint, typecheck, tests, build, and image push. Deployed to a real URL on Hetzner or Fly.io. HTTPS, env-based config, secrets handled properly.
 
-Then week 8 is no new features. I refactor the entire codebase using what I've absorbed from Fluent Python. Protocols instead of ABCs where it makes sense. Proper dataclasses for value objects. `__repr__` and `__eq__` on domain entities. `mypy --strict` clean. Audit async code for places where `asyncio.gather` or `TaskGroup` clarifies intent.
+I refactor the entire codebase using what I've absorbed from Fluent Python. Protocols instead of ABCs where it makes sense. Proper dataclasses for value objects. `__repr__` and `__eq__` on domain entities. `mypy --strict` clean. Audit async code for places where `asyncio.gather` or `TaskGroup` clarifies intent.
 
-Reading: Fluent Python chapters 5, 8, 11, 13, 15. Clean Code chapter 17 re-read with fresh eyes.
-
-What I want from review #4: a list of the 10 most significant refactors I made and your reaction to them. The honest "what would frustrate me joining this codebase tomorrow" question.
+Reading Goals: Fluent Python chapters 5, 8, 11, 13, 15. Clean Code chapter 17.
 
 ## Final Phase
 
@@ -77,7 +73,7 @@ Reading: DDIA chapters 5, 6, 9, plus re-reading my own Week 1 code, which I expe
 
 ## Tracking
 
-I'll keep a `LEARNING_LOG.md` in the repo. Every working day I'll write 2-3 sentences: what I built, what surprised me, what I don't yet understand. I think this will be more valuable to me in 6 months than the code itself.
+I'll keep a `LEARNING_LOG.md` in the repo. Every working day I'll write 2-3 sentences: what I built, what surprised me, what I don't yet understand.
 
 ## What success looks like
 
